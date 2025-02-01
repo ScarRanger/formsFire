@@ -1,0 +1,208 @@
+/* styles.css */
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure full viewport height */
+    margin: 0; /* Remove default margins */
+}
+
+.box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 400px; /* Adjust width as needed */
+}
+
+.form {
+    text-align: center; /* Center the form content */
+}
+
+.form h2 {
+    color: #333; /* Dark gray heading color */
+    margin-bottom: 20px;
+}
+
+.inputbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+/* styles.css */
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure full viewport height */
+    margin: 0; /* Remove default margins */
+}
+
+.box {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 400px; /* Adjust width as needed */
+}
+
+.form {
+    text-align: center; /* Center the form content */
+}
+
+.form h2 {
+    color: #333; /* Dark gray heading color */
+    margin-bottom: 20px;
+}
+
+.inputbox {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.inputbox input {
+    width: calc(100% - 22px); /* Account for span width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+.inputbox span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allow clicking through the span */
+    color: #999;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.inputbox input:focus + span,
+.inputbox input:valid + span {
+    top: 10px; /* Move span up on focus or valid input */
+    font-size: 14px;
+    color: #333;
+}
+
+.inputbox input:focus,
+.inputbox input:valid {
+    border-color: #007bff; /* Highlight border on focus or valid input */
+}
+
+.sub {
+    background-color: #007bff; /* Blue submit button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make the button full width */
+}
+
+.sub:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Image Preview */
+.image-preview {
+    margin-top: 10px;
+}
+
+.image-preview img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    display: none; /* Hidden by default */
+}
+
+.progress-bar {
+    height: 20px;
+    width: 0%;
+    background-color: #4caf50;
+    border-radius: 5px;
+}
+
+/* Responsive adjustments (example) */
+@media (max-width: 450px) {
+    .box {
+        width: 90%; /* Make box almost full width on smaller screens */
+        padding: 20px;
+    }
+}
+
+.inputbox input {
+    width: calc(100% - 22px); /* Account for span width */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+.inputbox span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allow clicking through the span */
+    color: #999;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.inputbox input:focus + span,
+.inputbox input:valid + span {
+    top: 10px; /* Move span up on focus or valid input */
+    font-size: 14px;
+    color: #333;
+}
+
+
+.inputbox input:focus,
+.inputbox input:valid {
+    border-color: #007bff; /* Highlight border on focus or valid input */
+}
+
+
+.sub {
+    background-color: #007bff; /* Blue submit button */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Make the button full width */
+}
+
+.sub:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments (example) */
+@media (max-width: 450px) {
+    .box {
+        width: 90%; /* Make box almost full width on smaller screens */
+        padding: 20px;
+    }
+}
