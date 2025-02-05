@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script>
+        window.onload = function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const role = urlParams.get('role');
+            if (role) {
+                alert(`Logged in as ${role}`);
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Welcome to Your Dashboard</h1>
+    <p>You have successfully logged in.</p>
+    <a href="/logout">Logout</a>
+</body>
+</html>
