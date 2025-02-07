@@ -27,11 +27,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Initialize Firebase Admin SDK
+// try {
+//     admin.app();
+// } catch (error) {
+//     admin.initializeApp({
+//         credential: admin.credential.applicationDefault(),
+//     });
+// }
+
 try {
-    admin.app();
+    admin.app(); // Check if already initialized
 } catch (error) {
+    const serviceAccountJson = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS); // Parse JSON string
     admin.initializeApp({
-        credential: admin.credential.applicationDefault(),
+        credential: admin.credential.cert(serviceAccountJson), // Use cert() with JSON object
     });
 }
 
