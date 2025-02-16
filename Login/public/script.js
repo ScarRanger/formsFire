@@ -1,42 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const loginBtn = document.getElementById("login-btn");
-  const logoutBtn = document.getElementById("logout-btn");
-  const userInfo = document.getElementById("user-info");
-  const adminSection = document.getElementById("admin-section");
+document.addEventListener("DOMContentLoaded", async () => {
+    console.log("⏳ Checking user session...");
 
-  // Function to get URL parameters
-  function getQueryParams() {
-      const params = new URLSearchParams(window.location.search);
-      return {
-          name: params.get("name"),
-          email: params.get("email"),
-          role: params.get("role"),
-          token: params.get("token")
-      };
-  }
+    try {
+        const response = await fetch(`/dashboard?nocache=${Date.now()}`, { credentials: "include" });
+        console.log("🔍 Response Status:", response.status);
 
-  // Handle login
-  loginBtn.addEventListener("click", () => {
-      window.location.href = "http://localhost:5001/auth/google"; // Redirect to backend login
-  });
+        if (!response.ok) {
+            console.warn("❌ Session missing. Redirecting to login.");
+            return window.location.href = "/"; // Redirect if session is missing
+        }
 
-  // Handle logout
-  logoutBtn.addEventListener("click", () => {
-      window.location.href = "index.html"; // Clears session by reloading
-  });
+        const user = await response.json();
+        console.log("✅ User session loaded:", user);
 
-  // Load user data from URL parameters
-  const user = getQueryParams();
-  if (user.name && user.email) {
-      document.getElementById("user-name").textContent = user.name;
-      document.getElementById("user-email").textContent = user.email;
-      document.getElementById("user-role").textContent = user.role || "guest";
-      
-      userInfo.classList.remove("hidden"); // Show user info
+        if (!user || !user.email) {
+            console.warn("❌ Invalid session data. Redirecting to login.");
+            return window.location.href = "/";
+        }
 
-      // Show admin panel only if user is an admin
-      if (user.role === "admin") {
-          adminSection.classList.remove("hidden");
-      }
-  }
+        document.getElementById("user-name").textContent = user.name;
+        document.getElementById("user-email").textContent = user.email;
+        document.getElementById("user-role").textContent = user.role;
+
+        document.getElementById("user-info").classList.remove("hidden");
+
+        document.querySelectorAll(".role-section").forEach(section => section.classList.add("hidden"));
+        document.getElementById(`${user.role}-section`)?.classList.remove("hidden");
+
+    } catch (error) {
+        console.error("❌ Error loading dashboard:", error);
+        window.location.href = "/";
+    }
 });
