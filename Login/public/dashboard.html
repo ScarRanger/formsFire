@@ -3,20 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <script>
-        window.onload = function () {
-            const urlParams = new URLSearchParams(window.location.search);
-            const role = urlParams.get('role');
-            if (role) {
-                alert(`Logged in as ${role}`);
-            }
-        };
-    </script>
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-    <h1>Welcome to Your Dashboard</h1>
-    <p>You have successfully logged in.</p>
-    <a href="/logout">Logout</a>
+    <div class="login-container">
+        <h2>Welcome, <span id="user-name"></span></h2>
+        <p>Email: <span id="user-email"></span></p>
+        <p>Role: <span id="user-role"></span></p>
+    </div>
+
+    <!-- Role-specific Sections -->
+    <div id="admin-section" class="role-section hidden">
+        <h3>Admin Content</h3>
+        <p>Welcome Admin! Here are the admin tools...</p>
+    </div>
+
+    <div id="coordinator-section" class="role-section hidden">
+        <h3>Coordinator Content</h3>
+        <p>Welcome Coordinator! Here are the coordinator tools...</p>
+    </div>
+
+    <div id="leader-section" class="role-section hidden">
+        <h3>Leader Content</h3>
+        <p>Welcome Leader! Here are the leader tools...</p>
+    </div>
+
+    <div id="cgs-section" class="role-section hidden">
+        <h3>CGS Content</h3>
+        <p>Welcome CGS! Here are the CGS tools...</p>
+    </div>
+
+    <div id="cyp-section" class="role-section hidden">
+        <h3>CYP Content</h3>
+        <p>Welcome CYP! Here are the CYP tools...</p>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
